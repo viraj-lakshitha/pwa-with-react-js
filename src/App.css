@@ -1,0 +1,15 @@
+div.custom-navbar {
+    background-color: rgb(1, 0, 52);
+    min-height: 40px;
+    max-height: 40px;
+}
+
+.navbar-item, .nav-brand {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.navbar-item:hover, .nav-brand:hover {
+    color: rgb(0, 13, 255);
+    text-decoration: underline;
+}
