@@ -9,17 +9,23 @@ this.addEventListener("install", (event) => {
                 '/static/js/bundle.js',
                 '/index.js',
                 '/',
+                '/profile',
+                '/about',
             ])
         })
     )
 })
 
 this.addEventListener("fetch", (event) => {
-    event.respondWith(
-        caches.match(event.request).then((response) => {
-            if (response) {
-                return response
-            }
-        })
-    )
+    if (!navigator.onLine) {
+        event.respondWith(
+            caches.match(event.request).then((response) => {
+                if (response) {
+                    return response
+                }
+                let requestUrl = event.request.clone();
+                fetch(requestUrl)
+            })
+        )
+    }
 })
